@@ -12,6 +12,9 @@
   top: 71%;
   left: 84%;
 }
+.is-pass-visible-login{
+  top: 58% !important;
+}
 .is-pass-visible:hover {
   opacity: 0.6;
 }
