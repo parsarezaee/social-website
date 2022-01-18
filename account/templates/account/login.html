@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
+{%  load static %}
 
 {% block title %}Login{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "account/account.css" %}"/>
+{% endblock %}
 
 {% block content %}
   <form action='' method='post' class='col-md-6'>
       {% csrf_token %}
       {{ form.as_p }}
+      <img src="/static/account/img/close.svg" class="is-pass-visible is-pass-visible-login deactive">
       <input type='submit' value='Login' class='btn btn-primary'>
+      <input type='reset' value='Reset' class='btn btn-secondary'>
   </form>
 
 {% endblock %}
