@@ -1,9 +1,10 @@
+from cmath import log
 from django.shortcuts import render, redirect
 from django.views import View
 from .forms import UserRegisterForm, UserLoginForm
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 class RegisterView(View):
@@ -43,3 +44,9 @@ class UserLoginView(View):
             messages.error(request, 'Username or password is wrong', 'warning')
         return render(request, self.template_name, {'form':form})
 
+
+class UserLogoutView(View):
+    def get(self, request):
+        logout(request)
+        messages.success(request, 'You logged out successfuly', 'success')
+        return redirect('home:home')
