@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+  <p>{{ post.user }} . {{ post.updated|date:"Y-M" }}</p>  
+  <p>{{ post.text }}</p>
+{% endblock %}
+
